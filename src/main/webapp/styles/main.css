@@ -2,11 +2,13 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
 }
+
 /* max szerokość kolumny 1200px i wyśrodkowanie */
 .container {
     max-width: 1200px;
     margin: 0 auto;
 }
+
 /* pozbywamy się podkreśleń linków */
 a {
     text-decoration: none;
@@ -52,8 +54,9 @@ kafelki mają zajmować tyle samo miejsca */
     padding: 0;
     display: flex;
     justify-content: space-evenly;
-    flex-wrap: wrap; /* dodane zawikanie */
+    flex-wrap: wrap;
 }
+
 /* kafelki mają wypełniać całą przestrzeń i być lekko przezroczyste */
 .categories > ul > li {
     flex-grow: 1;
@@ -80,6 +83,7 @@ kafelki mają zajmować tyle samo miejsca */
 .categories > ul > li {
     background-color: #5856D6;
 }
+
 /* kolor kafelków */
 .categories > ul > li:nth-child(3n) {
     background-color: #FF2D55;
@@ -92,6 +96,7 @@ kafelki mają zajmować tyle samo miejsca */
 .categories > ul > li:nth-child(3n+2) {
     background-color: #FF9500;
 }
+
 /* ramka i odstępy */
 .discovery {
     border: 1px solid #BDBDBD;
@@ -115,6 +120,7 @@ kafelki mają zajmować tyle samo miejsca */
     color: #007AFF;
     word-wrap: break-word;
 }
+
 /* wyrównanie i większa czcionka */
 .discovery-bar {
     display: flex;
