@@ -1,29 +1,14 @@
 package com.example.readstack.domain.discovery;
 
-import com.example.readstack.config.DataSourceProvider;
+import com.example.readstack.domain.common.BaseDao;
 
-import javax.naming.NamingException;
-import javax.sql.DataSource;
+
 import java.sql.*;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DiscoveryDao {
-
-    private final DataSource dataSource;
-
-    public DiscoveryDao() {
-        try {
-            this.dataSource = DataSourceProvider.getDataSource();
-        } catch (NamingException e) {
-            throw new RuntimeException(e);
-        }
-    }
+public class DiscoveryDao extends BaseDao{
 
     public List<Discovery> findAll() {
         final String query = """
@@ -32,7 +17,7 @@ public class DiscoveryDao {
                 FROM
                     discovery d
                 """;
-        try (Connection connection = dataSource.getConnection();
+        try (Connection connection = getConnection();
              Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(query);
             List<Discovery> allDiscoveries = new ArrayList<>();
@@ -64,7 +49,7 @@ public class DiscoveryDao {
                 WHERE
                     category_id = ?
                 """;
-        try (Connection connection = dataSource.getConnection();
+        try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, categoryId);
             ResultSet resultSet = statement.executeQuery();
