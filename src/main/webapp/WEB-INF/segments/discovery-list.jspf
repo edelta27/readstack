@@ -19,3 +19,7 @@
         </section>
     </article>
 </c:forEach>
+<%-- Dodany fragment poniżej --%>
+<a href="${pageContext.request.contextPath}/discovery/add" class="discovery-add-button">
+    <i class="fa fa-plus"></i>
+</a>
